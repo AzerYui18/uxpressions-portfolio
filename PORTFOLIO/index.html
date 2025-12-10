@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>uxpressions</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="./logo-removebg-preview.png">
+
+<style>
+  /* ===== GLOBAL STYLES ===== */
+  :root {
+    --deep-violet: #2A006A;
+    --electric-blue: #00BFFF;
+    --bright-magenta: #FF00FF;
+    --glow-white: #FFFFFF;
+    --bg-color: #0D0D1E;
+    --font-main: 'Poppins', sans-serif;
+  }
+  
+
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: var(--font-main); background: var(--bg-color); color:#e0e0e0; scroll-behavior:smooth; cursor:none; }
+  a { text-decoration:none; color:inherit; }
+  img { display:block; width:100%; }
+
+   .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 50px; /* adjust size */
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%; /* optional for rounded logo */
+  box-shadow: 0 0 10px var(--bright-magenta), 0 0 15px var(--electric-blue);
+}
+
+body, html, * {
+  font-family: 'Poppins', sans-serif;
+}
+
+  /* ===== STICKY SIDE NAVBAR ===== */
+  .side-nav {
+    position: fixed;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    z-index: 200;
+  }
+  .side-nav a {
+    width: 15px; height: 15px; border-radius: 50%;
+    border: 2px solid var(--bright-magenta);
+    background: transparent;
+    position: relative;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite alternate;
+  }
+  .side-nav a.active {
+    background: var(--electric-blue);
+    box-shadow: 0 0 12px var(--electric-blue);
+    transform: scale(1.3);
+  }
+  .side-nav a:hover {
+    box-shadow: 0 0 12px var(--bright-magenta);
+    transform: scale(1.3);
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 6px rgba(255,0,255,0.5); }
+    50% { transform: scale(1.1); box-shadow: 0 0 15px rgba(0,191,255,0.6); }
+    100% { transform: scale(1); box-shadow: 0 0 6px rgba(255,0,255,0.5); }
+  }
+
+  /* ===== HEADER ===== */
+ /* ===== MINIMAL HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--bg-color); /* Dark/navy minimal background */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--glow-white);
+}
+
+nav a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: #ccc;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background: var(--electric-blue); /* subtle neon accent */
+  transition: 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%; /* underline animation on hover */
+}
+
+nav a:hover {
+  color: var(--electric-blue); /* subtle text accent on hover */
+}
+
+/* Logo adjustments for minimal style */
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 0 5px var(--bright-magenta), 0 0 10px var(--electric-blue); /* subtle neon glow */
+}
+
+
+  /* ===== HERO WITH CAROUSEL & PARTICLES ===== */
+  .hero {
+    position: relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    min-height:80vh;
+    padding:2rem;
+    overflow:hidden;
+  }
+  .hero-carousel {
+    position:absolute;
+    top:0; left:0; width:100%; height:100%;
+    z-index:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+  }
+  .hero-carousel img {
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    animation: carouselFade 15s infinite;
+    filter: brightness(0.2) blur(1px);
+  }
+  .hero-carousel img:nth-child(1) { animation-delay: 0s; }
+  .hero-carousel img:nth-child(2) { animation-delay: 3s; }
+  .hero-carousel img:nth-child(3) { animation-delay: 6s; }
+  .hero-carousel img:nth-child(4) { animation-delay: 9s; }
+  .hero-carousel img:nth-child(5) { animation-delay: 12s; }
+  .hero-carousel img:nth-child(6) { animation-delay: 15s; }
+  .hero-carousel img:nth-child(7) { animation-delay: 18s; }
+  .hero-carousel img:nth-child(8) { animation-delay: 21s; }
+  .hero-carousel img:nth-child(9) { animation-delay: 24s; }
+  .hero-carousel img:nth-child(10) { animation-delay: 27s; }
+  .hero-carousel img:nth-child(11) { animation-delay: 30s; }
+  .hero-carousel img:nth-child(12) { animation-delay: 35s; }
+  .hero-carousel img:nth-child(13) { animation-delay: 40s; }
+  .hero-carousel img:nth-child(14) { animation-delay: 45s; }
+  .hero-carousel img:nth-child(15) { animation-delay: 50s; }
+  .hero-carousel img:nth-child(16) { animation-delay: 55s; }
+  .hero-carousel img:nth-child(17) { animation-delay: 60s; }
+ .hero-carousel img:nth-child(18) { animation-delay: 65s; }
+
+
+  @keyframes carouselFade {
+    0%, 33% { opacity:0; transform:scale(1.05); }
+    10%, 30% { opacity:1; transform:scale(1); }
+    100% { opacity:0; }
+  }
+
+  /* PARTICLES */
+  .hero-particles {
+    position: absolute;
+    top:0; left:0; width:100%; height:100%;
+    pointer-events:none; z-index:0;
+    overflow:hidden;
+  }
+  .hero-particles span {
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(90deg, var(--deep-violet), var(--bright-magenta), var(--electric-blue));
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatParticles 10s linear infinite;
+  }
+  @keyframes floatParticles {
+    0% { transform: translateY(0) translateX(0) scale(0.5); opacity:0.5; }
+    50% { transform: translateY(-100px) translateX(50px) scale(1); opacity:1; }
+    100% { transform: translateY(-200px) translateX(0) scale(0.5); opacity:0.5; }
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+  .hero h2 {
+    font-size:2.8rem; margin-bottom:1rem; font-weight:700;
+    background: linear-gradient(90deg, var(--deep-violet), var(--bright-magenta), var(--electric-blue));
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+    position:relative;
+  }
+  .hero p { font-size:1.1rem; max-width:600px; margin-bottom:2rem; color:#aaa; line-height:1.6; }
+
+  @keyframes glow { 0%{ text-shadow:0 0 10px var(--bright-magenta);} 50%{ text-shadow:0 0 20px var(--electric-blue);} 100%{ text-shadow:0 0 10px var(--bright-magenta);} }
+
+  /* ===== BUTTONS WITH NEON BORDER ===== */
+  .button {
+    position: relative;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    background: transparent;
+    color: var(--glow-white);
+    font-weight: 600;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+  .button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 2rem;
+    background: linear-gradient(90deg, var(--deep-violet), var(--bright-magenta), var(--electric-blue));
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+    z-index: -1;
+  }
+  .button:hover { box-shadow: 0 0 20px var(--electric-blue); transform: scale(1.05); }
+
+  /* ===== PROJECTS ===== */
+  section.projects { padding:4rem 2rem; opacity:0; transform:translateY(20px); transition:1s ease; }
+  section.projects.visible { opacity:1; transform:translateY(0); }
+  section.projects h3 { font-size:2rem; margin-bottom:2rem; color: var(--bright-magenta); text-align:center; }
+  .project-card {
+    background:#1a1a2e;
+    border-radius:1.5rem;
+    padding:1.5rem; margin-bottom:2rem;
+    box-shadow:0 4px 12px rgba(0,0,0,0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, opacity 0.5s ease;
+    opacity:0; transform:translateY(20px);
+  }
+  .project-card.visible { opacity:1; transform:translateY(0); }
+  .project-card:hover { transform: rotateY(5deg) rotateX(3deg); box-shadow:0 0 25px var(--bright-magenta); border:2px solid var(--electric-blue); border-radius:1.5rem; }
+  .project-card h4 { margin-bottom:0.5rem; color: var(--electric-blue); font-weight:600; }
+  .project-card p { font-size:0.95rem; color:#ccc; line-height:1.5; }
+  .project-card .tools { font-size:0.85rem; color:#aaa; margin-bottom:0.5rem; }
+
+  /* ===== SKILLS ===== */
+  section.skills { padding:4rem 2rem; text-align:center; opacity:0; transform:translateY(20px); transition:1s ease; }
+  section.skills.visible { opacity:1; transform:translateY(0); }
+  section.skills h3 { font-size:2rem; margin-bottom:2rem; color: var(--bright-magenta); }
+  .skills-list { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; }
+  .skills-list span { position:relative; padding:0.5rem 1rem; border:2px solid var(--bright-magenta); background:transparent; border-radius:1rem; box-shadow:0 0 8px var(--bright-magenta); transition: all 0.3s ease; font-weight:500; opacity:0; transform:translateY(20px); }
+  .skills-list span.visible { opacity:1; transform:translateY(0); }
+  .skills-list span:hover { box-shadow:0 0 15px var(--electric-blue); transform:scale(1.1); }
+
+  /* ===== ABOUT ===== */
+  section.about { padding:4rem 2rem; display:flex; flex-direction:column; align-items:center; gap:2rem; text-align:center; background:#0D0D1E; opacity:0; transform:translateY(20px); transition:1s ease; }
+  section.about.visible { opacity:1; transform:translateY(0); }
+  section.about img { width:150px; border-radius:50%; border:3px solid var(--bright-magenta); box-shadow:0 0 15px rgba(255,0,255,0.4); }
+  section.about p { max-width:700px; color:#ccc; line-height:1.6; }
+
+  /* ===== CONTACT ===== */
+  section.contact { padding:4rem 2rem; text-align:center; background:#111128; opacity:0; transform:translateY(20px); transition:1s ease; }
+  section.contact.visible { opacity:1; transform:translateY(0); }
+  section.contact h3 { font-size:2rem; margin-bottom:2rem; color: var(--bright-magenta); }
+  section.contact a {
+    display:inline-block; margin:0.5rem 1rem; padding:0.7rem 1.5rem; border-radius:2rem;
+    background: transparent;
+    position: relative;
+    color: var(--glow-white); font-weight:600;
+    transition: all 0.3s ease;
+  }
+  section.contact a::before {
+    content:'';
+    position:absolute;
+    inset: 0;
+    padding: 2px;
+    border-radius: 2rem;
+    background: linear-gradient(90deg, var(--deep-violet), var(--bright-magenta), var(--electric-blue));
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+    z-index:-1;
+  }
+  section.contact a:hover { box-shadow:0 0 20px var(--electric-blue); transform:scale(1.05); }
+
+  /* ===== FOOTER ===== */
+  footer { text-align:center; padding:2rem; color:#555; font-size:0.9rem; border-top:1px solid #222; }
+
+  /* Projects Grid Layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Project Card Styling with 3D tilt + neon glow */
+.project-card {
+  background:#1a1a2e;
+  border-radius:1.5rem;
+  padding:1.5rem;
+  box-shadow:0 4px 12px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease, opacity 0.5s ease;
+  opacity:0;
+  transform:translateY(20px);
+  perspective: 1000px;
+}
+
+.project-card.visible { opacity:1; transform:translateY(0); }
+
+.project-card:hover {
+  transform: rotateY(8deg) rotateX(5deg) translateY(-5px);
+  box-shadow:0 0 25px var(--bright-magenta), 0 0 40px var(--electric-blue);
+  border:2px solid var(--electric-blue);
+  border-radius:1.5rem;
+}
+
+/* Auto-resize images inside project cards */
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Responsive single column on mobile */
+@media(max-width:768px){
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.projects-filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-button {
+  padding: 0.6rem 1.5rem;
+  border-radius: 2rem;
+  border: 2px solid var(--bright-magenta);
+  background: transparent;
+  color: var(--glow-white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  animation: neonPulse 2s infinite alternate; /* optional subtle pulse */
+}
+
+.filter-button.active {
+  border-color: var(--electric-blue);
+  color: var(--electric-blue);
+  animation: neonPulse 1.5s infinite alternate;
+}
+
+/* Remove hover glow/scale completely */
+.filter-button:hover {
+  /* no transform or box-shadow */
+  color: var(--glow-white); /* optional: keep text color same on hover */
+}
+
+
+
+  /* ===== NEON CURSOR ===== */
+  .neon-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(90deg, var(--deep-violet), var(--bright-magenta), var(--electric-blue));
+    box-shadow: 0 0 10px var(--bright-magenta), 0 0 20px var(--electric-blue);
+    transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:768px){
+    header { flex-direction:column; gap:1rem; }
+    nav a { margin-left:0; }
+    .skills-list { flex-direction:column; align-items:center; }
+    .side-nav { display:none; }
+  }
+.filter-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Neon underline */
+.filter-underline {
+  position: absolute;
+  bottom: -5px;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--deep-violet), var(--bright-magenta), var(--electric-blue));
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Optional: glow for underline */
+.filter-underline::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 10px var(--bright-magenta), 0 0 20px var(--electric-blue);
+  border-radius: 2px;
+}
+
+  
+</style>
+</head>
+<body>
+
+<!-- SIDE NAVBAR -->
+<div class="side-nav">
+  <a href="#hero" class="nav-dot active"></a>
+  <a href="#projects" class="nav-dot"></a>
+  <a href="#skills" class="nav-dot"></a>
+  <a href="#about" class="nav-dot"></a>
+  <a href="#contact" class="nav-dot"></a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo-container">
+    <img src="./logo-removebg-preview.png" alt="Sheena Logo" class="logo">
+    <h1>uxpressions</h1>
+  </div>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-carousel">
+    <img src="./PUBMAT/143.jpg">
+    <img src="./PUBMAT/ARCOMP MANUAL.png">
+    <img src="./PUBMAT/COENG SC ANNOUNCEMENT.png">
+    <img src="./PUBMAT/Copy of USSG - Bulletin Board.png" >
+    <img src="./PUBMAT/EXTENSION.png" >
+    <img src="./PUBMAT/LIBULAN WORLD CONTRACEPTION DAY.png" >
+    <img src="./PUBMAT/RESEARCH CONGRESS (2).png" >
+    <img src="./PUBMAT/USSG.png">
+    <img src="./PROJECTS/ARCOMP DARK MODE UI.png">
+    <img src="./PROJECTS/ARCOMP LIGHT MODE.png">
+    <img src="./PROJECTS/ARCOMP USER MANUAL DARK MODE.png">
+    <img src="./PROJECTS/MOBILE APPLICATION SPLASH SCREEN.png">
+    <img src="./PROJECTS/PC BUILDING.png">
+    <img src="./logo-removebg-preview.png">
+    <img src="./ASSETS/1.png">
+    <img src="./ASSETS/2.png">
+    <img src="./ASSETS/3.png">
+    <img src="./ASSETS/4.png">
+  </div>
+
+  <div class="hero-particles"></div>
+  <div class="hero-content">
+    <h2>Hello, I’m Sheena</h2>
+    <p>I’m a UI/UX designer passionate about crafting intuitive, user-friendly interfaces. I bring ideas to life through design and human-centered experiences.</p>
+    <a href="#projects" class="button">See My Work</a>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects">
+  <h3>Projects / Case Studies</h3>
+
+  <div class="projects-filter">
+  <div class="filter-wrapper">
+    <button class="filter-button active" data-category="all">All</button>
+    <button class="filter-button" data-category="graphic">Graphic / Pubmats</button>
+    <button class="filter-button" data-category="design">Projects & Designs</button>
+    <!-- Neon underline -->
+    <span class="filter-underline"></span>
+  </div>
+</div>
+
+
+  <div class="projects-grid">
+    <!-- Graphic / Pubmats -->
+    <div class="project-card" data-category="graphic">
+      <h4>143 Rec Cross Recruitment</h4>
+      <div class="tools">Role: Designer | Tools: Canva </div>
+      <p>Created promotional materials for the Red Cross 143 Members recruitment.</p>
+      <img src="./PUBMAT/143.jpg" alt="Pubmat 1">
+    </div>
+    <div class="project-card" data-category="graphic">
+      <h4>ARCOMP USER MANUAL</h4>
+      <div class="tools">Role: Designer | Tools: Canva </div>
+      <p>Created layout for the user manual of our mobile application.</p>
+      <img src="./PUBMAT/ARCOMP MANUAL.png" alt="Pubmat 1">
+    </div>
+    <div class="project-card" data-category="graphic">
+      <h4>COENG SC ANNOUNCEMENT</h4>
+      <div class="tools">Role: Designer | Tools: Canva </div>
+      <p>Created layout for the student council announcement page.</p>
+      <img src="./PUBMAT/COENG SC ANNOUNCEMENT.png" alt="Pubmat 1">
+    </div>
+    <div class="project-card" data-category="graphic">
+      <h4>USSG BULLETIN BOARD</h4>
+      <div class="tools">Role: Designer | Tools: Canva</div>
+      <p>Created bulletin board for the USSG's important announcements.</p>
+      <img src="./PUBMAT/Copy of USSG - Bulletin Board.png" alt="Pubmat 1">
+    </div>
+    <div class="project-card" data-category="graphic">
+      <h4>KAINANG PAMILYA MAHALAGA DAY</h4>
+      <div class="tools">Role: Designer | Tools: Canva</div>
+      <p>Created promotional materials for the Extensionist organization.</p>
+      <img src="./PUBMAT/EXTENSION.png" alt="Pubmat 1">
+    </div>
+    <div class="project-card" data-category="graphic">
+      <h4>WORLD CONTRACEPTION DAY</h4>
+      <div class="tools">Role: Designer | Tools: Canva</div>
+      <p>Created promotional materials for the Libulan organization.</p>
+      <img src="./PUBMAT/LIBULAN WORLD CONTRACEPTION DAY.png" alt="Pubmat 1">
+    </div>
+    <div class="project-card" data-category="graphic">
+      <h4>RESEARCH CONGRESS</h4>
+      <div class="tools">Role: Designer | Tools: Canva</div>
+      <p>Created layout for our tarpaulin in Research Congress.</p>
+      <img src="./PUBMAT/RESEARCH CONGRESS (2).png" alt="Pubmat 1">
+    </div>
+    <div class="project-card" data-category="graphic">
+      <h4>USSG ACCOMPLISHMENT REPORT</h4>
+      <div class="tools">Role: Designer | Tools: Canva</div>
+      <p>Created semestral accomplishment report for the USSG organization.</p>
+      <img src="./PUBMAT/USSG.png" alt="Pubmat 1">
+    </div>
+    
+    
+
+    <!-- Projects & Designs -->
+        <div class="project-card" data-category="design">
+      <h4>PC BUILDING</h4>
+      <div class="tools">Role: Designer | Tools: Figma </div>
+      <p>A simple, intuitive interface that lets users choose and assemble PC parts with clear visuals and smooth, guided steps.
+</p>
+      <img src="./PROJECTS/PC BUILDING.png" alt="Pubmat 1">
+    </div>
+    
+    <div class="project-card" data-category="design">
+      <h4>MOBILE APPLICATION SPLASH SCREEN</h4>
+      <div class="tools">Role: Designer | Tools: Figma</div>
+      <p>A vibrant splash screen introducing three exciting mini-games, presented with bold icons and smooth, playful animations.</p>
+      <img src="./PROJECTS/MOBILE APPLICATION SPLASH SCREEN.png" alt="Pubmat 1">
+    </div>
+    
+
+    <div class="project-card" data-category="design">
+      <h4>THESIS MOBILE APPLICATION DARK MODE</h4>
+      <div class="tools">Role: UI Designer | Tools: Figma</div>
+      <p>ARCOMP: Dark-mode UI offering an immersive, user-friendly interface for augmented reality computer hardware learning.</p>
+      <img src="./PROJECTS/ARCOMP DARK MODE UI.png" alt="Thesis App UI">
+    </div>
+    <div class="project-card" data-category="design">
+      <h4>THESIS MOBILE APPLICATION LIGHT MODE</h4>
+      <div class="tools">Role: UI/UX Designer | Tools: Figma</div>
+      <p>ARCOMP: Clean light-mode UI for an intuitive and engaging augmented reality computer hardware learning experience.</p>
+      <img src="./PROJECTS/ARCOMP LIGHT MODE.png" alt="ERC Dashboard">
+    </div>
+    <div class="project-card" data-category="design">
+      <h4>THESIS USER MANUAL MOCKUP</h4>
+      <div class="tools">Role: Frontend & UI Designer | Tools: Figma</div>
+      <p>User-friendly light-mode interface designed to guide users clearly through ARCOMP’s features and functionalities.</p>
+      <img src="./PROJECTS/ARCOMP USER MANUAL DARK MODE.png" alt="System Projects">
+    </div>
+  </div>
+</section>
+
+
+
+<!-- SKILLS -->
+<section id="skills" class="skills">
+  <h3>Skills & Expertise</h3>
+  <div class="skills-list">
+    <span>UI Design</span>
+    <span>UX Research</span>
+    <span>Prototyping</span>
+    <span>Figma</span>
+    <span>Canva</span>
+    <span>Frontend Dev</span>
+    <span>Responsive Design</span>
+    <span>Design Thinking</span>
+    <span>Intermediate Programming</span>
+    <span>Basic Computer Hardware Troubleshooting</span>
+    <span>Frontend Developer</span>
+    <span>Documentation</span>
+    <span>Microsoft Office Proficiency</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <img src="./Picture.png" alt="Sheena Photo">
+  <p>Hi! I’m Sheena, a passionate UI/UX designer who transforms complex ideas into simple, intuitive interfaces. I create pubmats for organizations, design thesis apps, and contribute to system projects, keeping the user at the center of every design.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h3>Let’s Connect</h3>
+  <a href="mailto:caritativosheena@gmail.com">Email Me</a>
+  <a href="https://www.linkedin.com/in/sheena-caritativo-2b8441384/" target="_blank">LinkedIn</a>
+  <a href="https://github.com/AzerYui18" target="_blank">GitHub</a>
+</section>
+
+<footer>&copy; 2025 uxpressions. All rights reserved.</footer>
+
+<!-- NEON CURSOR -->
+<div class="neon-cursor"></div>
+
+<script>
+/* ===== PARTICLES ===== */
+const particlesContainer = document.querySelector('.hero-particles');
+const particleCount = 30;
+for(let i = 0; i < particleCount; i++){
+  const particle = document.createElement('span');
+  const x = Math.random() * 100;
+  const y = Math.random() * 100;
+  const size = Math.random() * 6 + 3;
+  const delay = Math.random() * 10;
+  particle.style.left = x + '%';
+  particle.style.top = y + '%';
+  particle.style.width = size + 'px';
+  particle.style.height = size + 'px';
+  particle.style.animationDelay = delay + 's';
+  particlesContainer.appendChild(particle);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+const sections = document.querySelectorAll('section');
+const projectCards = document.querySelectorAll('.project-card');
+const skillItems = document.querySelectorAll('.skills-list span');
+
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY + window.innerHeight * 0.7;
+  sections.forEach(section => {
+    if(scrollPos > section.offsetTop){
+      section.classList.add('visible');
+    }
+  });
+  projectCards.forEach(card => {
+    if(scrollPos > card.offsetTop){ card.classList.add('visible'); }
+  });
+  skillItems.forEach(skill => {
+    if(scrollPos > skill.offsetTop){ skill.classList.add('visible'); }
+  });
+
+  /* Side nav highlights */
+  const navDots = document.querySelectorAll('.side-nav a');
+  sections.forEach((section, i) => {
+    if(scrollPos > section.offsetTop){
+      navDots.forEach(dot => dot.classList.remove('active'));
+      if(navDots[i]) navDots[i].classList.add('active');
+    }
+  });
+});
+
+/* ===== NEON CURSOR ===== */
+const cursor = document.querySelector('.neon-cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.top = e.clientY + 'px';
+  cursor.style.left = e.clientX + 'px';
+});
+
+const filterButtons = document.querySelectorAll('.filter-button');
+
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Remove active class from all buttons
+    filterButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const category = btn.dataset.category;
+
+    projectCards.forEach(card => {
+      if(category === 'all' || card.dataset.category === category){
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+const filterWrapper = document.querySelector('.filter-wrapper');
+const underline = document.querySelector('.filter-underline');
+const filterBtns = document.querySelectorAll('.filter-button');
+
+function moveUnderline(activeBtn) {
+  const btnRect = activeBtn.getBoundingClientRect();
+  const wrapperRect = filterWrapper.getBoundingClientRect();
+  underline.style.width = btnRect.width + 'px';
+  underline.style.left = (btnRect.left - wrapperRect.left) + 'px';
+}
+
+// Initialize underline position
+moveUnderline(document.querySelector('.filter-button.active'));
+
+// Update on click
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    moveUnderline(btn);
+
+    // Filter projects
+    const category = btn.dataset.category;
+    projectCards.forEach(card => {
+      if(category === 'all' || card.dataset.category === category){
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Adjust on window resize
+window.addEventListener('resize', () => {
+  moveUnderline(document.querySelector('.filter-button.active'));
+});
+
+</script>
+</body>
+</html>
